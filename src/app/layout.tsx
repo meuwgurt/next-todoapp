@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ThemeProvider from '@/components/providers/theme';
 import { ReactNode } from 'react';
 import './globals.css';
 
@@ -11,7 +12,13 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
     return (
         <html lang="en">
             <body>
-                { children }
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange>
+                    { children }
+                </ThemeProvider>
             </body>
         </html>
     );
